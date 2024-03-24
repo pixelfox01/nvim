@@ -53,12 +53,8 @@ vim.opt.scrolloff = 12
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
--- File keymaps
-vim.keymap.set("n", "<leader>w", "<cmd>:w<CR>")
-vim.keymap.set("n", "<leader>q", "<cmd>:q<CR>")
-
 vim.diagnostic.config({
-  virtual_text = false,
+	virtual_text = false,
 })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
@@ -70,19 +66,19 @@ vim.opt.mouse = "a"
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+	desc = "Highlight when yanking (copying) text",
+	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+	callback = function()
+		vim.highlight.on_yank()
+	end,
 })
 
 -- Open Telescope on startup
 -- (if no files are loaded in buffer)
 vim.api.nvim_create_autocmd("VimEnter", {
-  callback = function()
-    if vim.fn.argv(0) == "" then
-      require("telescope.builtin").find_files()
-    end
-  end,
+	callback = function()
+		if vim.fn.argv(0) == "" then
+			require("telescope.builtin").find_files()
+		end
+	end,
 })
