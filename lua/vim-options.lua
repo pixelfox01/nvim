@@ -43,6 +43,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "L", "$")
 vim.keymap.set("n", "H", "^")
 
+vim.keymap.set("n", "<Enter>", "o<Esc>")
+vim.keymap.set("n", "<S-Enter>", "O<Esc>")
+
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 12
 
