@@ -4,17 +4,13 @@ return {
 		require("lualine").setup({
 			sections = {
 				lualine_b = {
-					{
-						"buffers",
-					},
+					"buffers",
 				},
 				lualine_c = {},
 				lualine_x = {
-					{
-						"branch",
-						"diff",
-						"diagnostics",
-					},
+					"branch",
+					"diff",
+					"diagnostics",
 				},
 			},
 			options = {
