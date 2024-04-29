@@ -1,8 +1,3 @@
--- vim.cmd("set expandtab")
--- vim.cmd("set tabstop=2")
--- vim.cmd("set softtabstop=2")
--- vim.cmd("set shiftwidth=2")
-
 vim.opt.expandtab = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
@@ -12,16 +7,15 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- set relative line numbers
+vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.signcolumn = "yes"
 
 -- Set to true if you have a Nerd Font installed
 vim.g.have_nerd_font = true
 
 -- Sync clipboard between OS and Neovim.
 vim.opt.clipboard = "unnamedplus"
-
--- Keep signcolumn on by default
-vim.opt.signcolumn = "yes"
 
 vim.opt.breakindent = true
 vim.opt.undofile = true
@@ -44,6 +38,10 @@ vim.keymap.set("n", "<C-l>", "<C-w><C-l>", { desc = "Move focus to the right win
 vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower window" })
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
+-- Buffer navigation
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
+
 -- -- Horizontal movement keymaps
 -- vim.keymap.set("n", "L", "$")
 -- vim.keymap.set("n", "H", "^")
@@ -59,7 +57,7 @@ vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagn
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
 vim.diagnostic.config({
-	virtual_text = false,
+  virtual_text = false,
 })
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
@@ -74,19 +72,19 @@ vim.g.copilot_enabled = false
 
 -- Highlight when yanking (copying) text
 vim.api.nvim_create_autocmd("TextYankPost", {
-	desc = "Highlight when yanking (copying) text",
-	group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-	callback = function()
-		vim.highlight.on_yank()
-	end,
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
 })
 
 -- Open Telescope on startup
 -- (if no files are loaded in buffer)
 vim.api.nvim_create_autocmd("VimEnter", {
-	callback = function()
-		if vim.fn.argv(0) == "" then
-			require("telescope.builtin").find_files()
-		end
-	end,
+  callback = function()
+    if vim.fn.argv(0) == "" then
+      require("telescope.builtin").find_files()
+    end
+  end,
 })
