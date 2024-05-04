@@ -1,6 +1,8 @@
 return {
   {
     "hrsh7th/cmp-nvim-lsp",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-buffer",
   },
   {
     "L3MON4D3/LuaSnip",
@@ -38,7 +40,7 @@ return {
         sources = cmp.config.sources({
           { name = "nvim_lsp" },
           { name = "luasnip" }, -- For luasnip users.
-        }, {
+          { name = "path" },
           { name = "buffer" },
         }),
       })

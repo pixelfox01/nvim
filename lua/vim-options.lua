@@ -3,6 +3,10 @@ vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 
+vim.opt.wrap = false
+
+vim.opt.termguicolors = true
+
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -26,7 +30,7 @@ vim.opt.smartcase = true
 
 -- Decrease mapped sequence wait time
 -- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
+vim.opt.timeoutlen = 400
 
 -- Configure how new splits should be opened
 vim.opt.splitright = true
@@ -39,8 +43,8 @@ vim.keymap.set("n", "<C-j>", "<C-w><C-j>", { desc = "Move focus to the lower win
 vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper window" })
 
 -- Buffer navigation
-vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
-vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
+-- vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
+-- vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
 
 -- -- Horizontal movement keymaps
 -- vim.keymap.set("n", "L", "$")
@@ -51,6 +55,7 @@ vim.keymap.set("n", "<S-Enter>", "O<Esc>")
 
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.opt.scrolloff = 12
+vim.opt.sidescrolloff = 24
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })

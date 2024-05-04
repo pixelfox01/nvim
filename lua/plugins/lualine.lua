@@ -3,10 +3,7 @@ return {
   config = function()
     require("lualine").setup({
       sections = {
-        lualine_b = {
-          "buffers",
-        },
-        lualine_c = {},
+        lualine_b = {},
         lualine_x = {
           "branch",
           "diff",
