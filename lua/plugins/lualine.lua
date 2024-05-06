@@ -11,7 +11,7 @@ return {
         },
       },
       options = {
-        theme = "gruvbox_dark",
+        theme = "gruvbox-material",
         globalstatus = true,
         icons_enabled = true,
         component_separators = "|",
