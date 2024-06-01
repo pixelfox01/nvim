@@ -46,9 +46,9 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 -- vim.keymap.set("n", "<Tab>", "<cmd>bnext<CR>")
 -- vim.keymap.set("n", "<S-Tab>", "<cmd>bprev<CR>")
 
--- -- Horizontal movement keymaps
--- vim.keymap.set("n", "L", "$")
--- vim.keymap.set("n", "H", "^")
+-- Horizontal movement keymaps
+vim.keymap.set("n", "L", "$")
+vim.keymap.set("n", "H", "^")
 
 vim.keymap.set("n", "<Enter>", "o<Esc>")
 vim.keymap.set("n", "<S-Enter>", "O<Esc>")
@@ -60,6 +60,8 @@ vim.opt.sidescrolloff = 24
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show diagnostic [E]rror messages" })
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
+
+vim.keymap.set("n", "<leader>ff", vim.lsp.buf.format, { desc = "[F]ormat [F]ile" })
 
 vim.diagnostic.config({
   virtual_text = false,

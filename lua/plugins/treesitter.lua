@@ -11,6 +11,7 @@ return {
         "python",
         "html",
         "javascript",
+        "typescript",
         "lua",
       },
       auto_install = true,

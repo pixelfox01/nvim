@@ -28,6 +28,9 @@ return {
 			lspconfig.pyright.setup({
 				capabilities = capabilities,
 			})
+			lspconfig.tailwindcss.setup({
+				capabilities = capabilities,
+			})
 			lspconfig.gopls.setup({
 				capabilities = capabilities,
 				settings = {
@@ -39,6 +42,12 @@ return {
 						},
 					},
 				},
+			})
+
+			lspconfig["tailwindcss"].setup({
+				on_attach = function(client, bufnr)
+					require("tailwindcss-colors").buf_attach(bufnr)
+				end,
 			})
 
 			-- Keybindings for LSP functions
